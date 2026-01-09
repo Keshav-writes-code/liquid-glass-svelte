@@ -1,10 +1,10 @@
 {
-  "name": "@wxperia/liquid-glass-vue",
-  "version": "1.0.9",
-  "description": "Apple's Liquid Glass effect for Vue 3. Based on the original liquid-glass-react library.",
+  "name": "liquid-glass-svelte",
+  "version": "1.0.0",
+  "description": "Apple's Liquid Glass effect for Svelte 5. Based on the original liquid-glass-react and liquid-glass-vue library.",
   "keywords": [
-    "vue",
-    "vue3",
+    "svelte",
+    "svelte5",
     "liquid",
     "glass",
     "effect",
@@ -12,78 +12,57 @@
     "ui",
     "component"
   ],
-  "homepage": "https://github.com/wxperia/liquid-glass-vue",
+  "homepage": "https://github.com/keshav-writes-code/liquid-glass-svelte",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wxperia/liquid-glass-vue.git"
+    "url": "https://github.com/keshav-writes-code/liquid-glass-svelte.git"
   },
   "license": "MIT",
-  "author": "Vue adaptation of liquid-glass-react",
-  "private": false,
+  "author": "Svelte adaptation of liquid-glass-vue",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.cjs"
-      }
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
   ],
   "scripts": {
-    "release": "standard-version",
-    "build:lib": "vite build --config vite.config.lib.ts",
-    "build": "vite build --config vite.config.ts",
-    "dev": "vite",
+    "dev": "vite dev",
+    "build": "vite build && npm run package",
     "preview": "vite preview",
-    "test:unit": "vitest",
-    "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
-    "lint:eslint": "eslint . --fix",
-    "lint": "run-s lint:*",
-    "format": "prettier --write src/"
+    "package": "svelte-package -o dist",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
-  "dependencies": {
-    "vue": "^3.1.13"
+  "peerDependencies": {
+    "svelte": "^5.0.0"
   },
   "devDependencies": {
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/package": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.1.10",
-    "@tsconfig/node22": "^22.0.1",
-    "@types/jsdom": "^21.1.7",
+    "@tailwindcss/vite": "^4.0.0",
     "@types/node": "^22.14.0",
-    "@vitejs/plugin-vue": "^5.2.3",
-    "@vitejs/plugin-vue-jsx": "^4.1.2",
-    "@vitest/eslint-plugin": "^1.1.39",
-    "@vue/eslint-config-prettier": "^10.2.0",
-    "@vue/eslint-config-typescript": "^14.5.0",
-    "@vue/test-utils": "^2.4.6",
-    "@vue/tsconfig": "^0.7.0",
     "autoprefixer": "^10.4.21",
-    "eslint": "^9.22.0",
-    "eslint-plugin-oxlint": "^0.16.0",
-    "eslint-plugin-vue": "~10.0.0",
-    "jiti": "^2.4.2",
-    "jsdom": "^26.0.0",
-    "npm-run-all2": "^7.0.2",
-    "oxlint": "^0.16.0",
-    "postcss": "^8.5.5",
-    "prettier": "3.5.3",
-    "standard-version": "^9.5.0",
-    "tailwindcss": "^4.1.10",
-    "typescript": "~5.8.0",
-    "vite": "^6.2.4",
-    "vite-plugin-dts": "^4.5.4",
-    "vite-plugin-vue-devtools": "^7.7.2",
-    "vitest": "^3.1.1",
-    "vue-tsc": "^2.2.8"
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-svelte": "^3.0.0",
+    "publint": "^0.2.0",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^5.0.0"
   }
 }
