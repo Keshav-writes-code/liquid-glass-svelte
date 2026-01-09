@@ -1,7 +1,10 @@
 {
-  "name": "liquid-glass-svelte",
+  "name": "@keshav-writes-code/liquid-glass-svelte",
   "version": "1.0.0",
   "description": "Apple's Liquid Glass effect for Svelte 5. Based on the original liquid-glass-react and liquid-glass-vue library.",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "svelte",
     "svelte5",
