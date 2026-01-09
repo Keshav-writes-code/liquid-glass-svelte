@@ -1,11 +1,12 @@
-import { type CSSProperties, type VNode } from 'vue'
 import type { FragmentShaderType } from './shader-util'
+
 export enum GlassMode {
   standard = 'standard',
   polar = 'polar',
   prominent = 'prominent',
   shader = 'shader',
 }
+
 export interface GlassFilterProps {
   id: string
   displacementScale: number
@@ -17,8 +18,8 @@ export interface GlassFilterProps {
 }
 
 export interface GlassContainerProps {
-  className?: string
-  style?: Partial<CSSProperties>
+  class?: string
+  style?: string
   displacementScale?: number
   blurAmount?: number
   saturation?: number
@@ -36,6 +37,7 @@ export interface GlassContainerProps {
   onClick?: () => void
   mode?: GlassMode,
   effect?: FragmentShaderType
+  children?: any
 }
 
 export interface LiquidGlassProps {
@@ -48,11 +50,12 @@ export interface LiquidGlassProps {
   globalMousePos?: { x: number; y: number }
   mouseOffset?: { x: number; y: number }
   mouseContainer?: HTMLElement
-  className?: string
+  class?: string
   padding?: string
-  style?: Partial<CSSProperties>
+  style?: string
   overLight?: boolean
   mode?: GlassMode
   onClick?: () => void,
   effect?: FragmentShaderType
+  children?: any
 }

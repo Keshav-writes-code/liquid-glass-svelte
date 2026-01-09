@@ -1,8 +1,7 @@
-import type { App } from 'vue'
-import LiquidGlassComponent from './components/LiquidGlass.vue'
-export { default as LiquidGlass } from './components/LiquidGlass.vue'
-export { default as GlassContainer } from './components/GlassContainer.vue'
-export { default as GlassFilter } from './components/GlassFilter.vue'
+import LiquidGlass from './components/LiquidGlass.svelte'
+import GlassContainer from './components/GlassContainer.svelte'
+import GlassFilter from './components/GlassFilter.svelte'
+export { LiquidGlass, GlassContainer, GlassFilter }
 export { ShaderDisplacementGenerator, fragmentShaders } from './shader-util'
 export type { FragmentShaderType } from './shader-util'
 export {
@@ -11,9 +10,3 @@ export {
   type GlassFilterProps,
   type LiquidGlassProps,
 } from './type'
-
-export default {
-  install(app: App) {
-    app.component('LiquidGlass', LiquidGlassComponent)
-  },
-}
