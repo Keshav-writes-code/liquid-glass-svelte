@@ -46,13 +46,12 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build library
-        run: pnpm build:lib
+        run: pnpm package
 
       - name: Verify build output
         run: |
           ls -la dist/
           test -f dist/index.js
-          test -f dist/index.cjs
           test -f dist/index.d.ts
 
       - name: Check if version matches tag
